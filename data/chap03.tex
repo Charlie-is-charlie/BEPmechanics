@@ -1,3 +1,36 @@
 \chapter{理想弹塑性材料杆的理论求解}
-\label{cha:theory}
-本章节
+\label{cha:ideal_theory}
+本章节将推导圆杆变形之后，轴向应力与剪应力沿杆截面分布的解析表达式。
+
+首先轴向拉伸细杆，使其全长全截面轴向应力均达到~{$f_y$}，建立柱坐标系，此时圆杆内任一横截面上距离轴线~{$x$}距离为~{$r$}的点的应力状态为：
+\begin{equation}\label{eq4}
+    \sigma_{ij} = \begin{bmatrix}
+        0 & 0 & 0 \\
+        0 & f_y & 0 \\
+        0 & 0 & 0
+        \end{bmatrix}
+\end{equation} 
+
+偏应力张量：
+\begin{equation}\label{eq5}
+    s_{ij} = \begin{bmatrix}
+        -\frac{1}{3}f_y & 0 & 0 \\
+        0 & \frac{2}{3}f_y & 0 \\
+        0 & 0 & -\frac{1}{3}f_y
+        \end{bmatrix}
+\end{equation} 
+
+代入~Mises~屈服准则，求得：
+\begin{equation}\label{eq6}
+    q = \frac{f_y}{\sqrt{3}}
+\end{equation} 
+
+考虑将杆的两个端截面相对旋转一个小角度~{$\theta$}，则单位扭转角为：
+\begin{equation}\label{eq7}
+    \alpha  = \frac{\theta }{L}
+\end{equation} 
+
+根据几何关系，柱坐标系下的微应变张量的各分量为：
+
+
+此时圆杆的位移场：

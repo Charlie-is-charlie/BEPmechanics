@@ -1,6 +1,21 @@
 \chapter{轴向应力的变化趋势}
 \setlength{\footskip}{15.61334pt}
 \label{cha:trend}
-本章节将不经计算，判断杆的轴向应力在旋转变形过程中是变大还是变小。
+本章节将不经计算，通过基本公式判断杆的轴向应力在旋转变形过程中是变大还是变小。
 
 经历轴向拉伸至全长全截面屈服后再旋转小角度过程中，Mises~屈服准则为：
+\begin{equation}\label{eq1}
+    f(\sigma_{ij}) = \sqrt{J_2}-q = 0
+\end{equation} 
+其中，{$J_2$}~为应力的一个不变量，{$q$}~为屈服参数。
+
+在主应力空间的柱坐标系中，式~(\ref{eq1})可表示为：
+\begin{equation}\label{eq2}
+    \sqrt{\frac{1}{6}[(\sigma_{rr}-\sigma_{\theta \theta})^2+(\sigma_{\theta \theta}-\sigma_{xx})^2+(\sigma_{xx}-\sigma_{rr})^2]+\sigma_{r\theta}^2+\sigma_{x\theta}^2+\sigma_{xr}^2}-q = 0
+\end{equation}
+先将圆杆轴向拉伸至~{$f_y$}，然后在保持杆长不变的情况下，杆的两个端截面相对旋转一个小角度~{$\theta $}。旋转过程中，圆杆任一横截面上各点仅存在正应力~{$\sigma_{xx}$}~与剪应力~{$\sigma_{x\theta}$}~不为~0。代入~Mises~屈服函数式~(\ref{eq2})，在旋转过程中，总有下式成立：
+\begin{equation}\label{eq3}
+    \sqrt{\frac{1}{3}\sigma_{xx}^2+\sigma_{x\theta}^2} = q
+\end{equation}
+
+因为在旋转过程中剪应力~{$\sigma_{x\theta}$}~不断增大，而理想弹塑性材料条件下~{$q$}~为常数，故可以判断截面正应力~{$\sigma_{xx}$}~在旋转变形过程中不断变小。
