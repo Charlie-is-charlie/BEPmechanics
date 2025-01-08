@@ -31,6 +31,83 @@
 \end{equation} 
 
 根据几何关系，柱坐标系下的微应变张量的各分量为：
-
+\begin{equation}\label{eq8}
+    \left\{
+        \begin{array}{l}
+            \varepsilon_rr = \dfrac{\partial u_r}{\partial r}; \varepsilon_{\theta\theta} = \dfrac{\partial u_\theta}{\partial \theta}; \varepsilon_xx = \dfrac{\partial u_x}{\partial x}\vspace{1ex}\\
+            \varepsilon_{r\theta} = \dfrac{1}{2}(\dfrac{1}{r}\dfrac{\partial u_r}{\partial \theta}+\dfrac{\partial u_\theta}{\partial r}-\dfrac{u_\theta}{r})\vspace{1ex}\\
+            \varepsilon_{\theta x} = \varepsilon_{x \theta}=\dfrac{1}{2}(\dfrac{1}{r}\dfrac{\partial u_x}{\partial \theta}+\dfrac{\partial u_\theta}{\partial x})\vspace{1ex}\\
+            \varepsilon_{xr} = \varepsilon_{rx}=\dfrac{1}{2}(\dfrac{\partial u_x}{\partial r}+\dfrac{\partial u_r}{\partial x})\\
+        \end{array}
+    \right.
+\end{equation} 
 
 此时圆杆的位移场：
+\begin{equation}\label{eq9}
+    \left\{
+        \begin{array}{l}
+            u_x = \dfrac{f_y}{E}x \vspace{1ex}\\
+            u_\theta = axr\\
+        \end{array}
+    \right.
+\end{equation} 
+
+则有：
+\begin{equation}\label{eq10}
+    \varepsilon_{\theta x} =\dfrac{1}{2}(\dfrac{1}{r}\dfrac{\partial u_x}{\partial \theta}+\dfrac{\partial u_\theta}{\partial x})=\dfrac{1}{2}ar=\dfrac{\theta r}{2L}
+\end{equation} 
+
+此时圆杆上各点的应变状态为：
+\begin{equation}\label{eq11}
+    \varepsilon_{ij} = \begin{bmatrix}
+        \varepsilon_{rr} & 0 & 0 \vspace{1ex}\\
+        0 & \varepsilon_{xx} & \dfrac{\theta r}{2L} \vspace{1ex}\\
+        0 & \dfrac{\theta r}{2L} & \varepsilon_{\theta \theta}
+        \end{bmatrix}
+\end{equation} 
+
+由问题叙述已知，扭转过程中杆长不变，则~{$\varepsilon_{rr}$}、{$\varepsilon_{xx}$}、~{$\varepsilon_{\theta \theta}$}~在旋转过程中保持不变。因此，可得应变率张量：
+\begin{equation}\label{eq12}
+    \dot e_{ij} = \dot \varepsilon_{ij} - \dfrac{1}{3}\dot \varepsilon_{ij} \delta_{ij}  = \begin{bmatrix}
+        0 & 0 & 0 \vspace{1ex}\\
+        0 & 0 & \dfrac{\dot\theta r}{2L}\\
+        0 & \dfrac{\dot\theta r}{2L} & 0
+        \end{bmatrix}
+\end{equation} 
+
+此外，写出此时圆杆各点应力状态：
+\begin{equation}\label{eq13}
+    \sigma_{ij} = \begin{bmatrix}
+        0 & 0 & 0 \\
+        0 & \sigma_{xx} & \tau_{x \theta}\\
+        0 & \tau_{\theta x} & 0
+        \end{bmatrix}
+\end{equation} 
+
+则有偏应力张量：
+\begin{equation}\label{eq14}
+    s_{ij} = \begin{bmatrix}
+        -\dfrac{1}{3}\sigma_{xx} & 0 & 0 \vspace{1ex}\\
+        0 & \dfrac{2}{3}\sigma_{xx} & \tau_{x \theta}\vspace{1ex}\\
+        0 & \tau_{\theta x} & -\dfrac{1}{3}\sigma_{xx}
+        \end{bmatrix}
+\end{equation} 
+
+相对应的偏应力率张量：
+\begin{equation}\label{eq15}
+    \dot s_{ij} = \begin{bmatrix}
+        -\dfrac{1}{3}\dot \sigma_{xx} & 0 & 0 \vspace{1ex}\\
+        0 & \dfrac{2}{3}\dot \sigma_{xx} & \dot \tau_{x \theta}\vspace{1ex}\\
+        0 & \dot \tau_{\theta x} & \dfrac{1}{3}\dot \sigma_{xx}
+        \end{bmatrix}
+\end{equation} 
+
+考虑相关塑性流动法则下，基于~Mises~屈服准则建立的多维弹塑性理论模型。偏应力率与偏应变率的解析求解关系：
+
+因为此时圆杆内各点屈服，由~Mises~屈服函数可得：
+
+整理得圆杆截面各点正应力 与剪应力 满足屈服条件：
+
+
+
+
