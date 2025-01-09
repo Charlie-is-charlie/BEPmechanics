@@ -1,8 +1,8 @@
 \chapter{理想弹塑性材料杆的理论求解}
 \label{cha:ideal_theory}
-本章节将推导圆杆变形之后，轴向应力与剪应力沿杆截面分布的解析表达式。
+本章节将推导圆杆变形之后，轴向应力与剪应力沿杆截面分布的解析表达式。参考的教材除《工程弹塑性力学引论》外，还借鉴了《弹性与塑性力学》\cite{txysxlx}。
 
-首先轴向拉伸细杆，使其全长全截面轴向应力均达到~{$f_y$}，建立柱坐标系，此时圆杆内任一横截面上距离轴线~{$x$}距离为~{$r$}的点的应力状态为：
+首先轴向拉伸细杆，使其全长全截面轴向应力均达到~{$f_y$}，建立柱坐标系，此时圆杆内任一横截面上距离轴线~{$x$}~距离为~{$r$}~的点的应力状态为：
 \begin{equation}\label{eq4}
     \sigma_{ij} = \begin{bmatrix}
         0 & 0 & 0 \\
@@ -34,7 +34,7 @@
 \begin{equation}\label{eq8}
     \left\{
         \begin{array}{l}
-            \varepsilon_rr = \dfrac{\partial u_r}{\partial r}; \varepsilon_{\theta\theta} = \dfrac{\partial u_\theta}{\partial \theta}; \varepsilon_xx = \dfrac{\partial u_x}{\partial x}\vspace{1ex}\\
+            \varepsilon_{rr} = \dfrac{\partial u_r}{\partial r};~ \varepsilon_{\theta\theta} = \dfrac{\partial u_\theta}{\partial \theta};~ \varepsilon_xx = \dfrac{\partial u_x}{\partial x}\vspace{1ex}\\
             \varepsilon_{r\theta} = \dfrac{1}{2}(\dfrac{1}{r}\dfrac{\partial u_r}{\partial \theta}+\dfrac{\partial u_\theta}{\partial r}-\dfrac{u_\theta}{r})\vspace{1ex}\\
             \varepsilon_{\theta x} = \varepsilon_{x \theta}=\dfrac{1}{2}(\dfrac{1}{r}\dfrac{\partial u_x}{\partial \theta}+\dfrac{\partial u_\theta}{\partial x})\vspace{1ex}\\
             \varepsilon_{xr} = \varepsilon_{rx}=\dfrac{1}{2}(\dfrac{\partial u_x}{\partial r}+\dfrac{\partial u_r}{\partial x})\\
@@ -68,6 +68,15 @@
 
 由问题叙述已知，扭转过程中杆长不变，则~{$\varepsilon_{rr}$}、{$\varepsilon_{xx}$}、~{$\varepsilon_{\theta \theta}$}~在旋转过程中保持不变。因此，可得应变率张量：
 \begin{equation}\label{eq12}
+    \dot \varepsilon_{ij} = \begin{bmatrix}
+        0 & 0 & 0 \vspace{1ex}\\
+        0 & 0 & \dfrac{\dot\theta r}{2L}\\
+        0 & \dfrac{\dot\theta r}{2L} & 0
+    \end{bmatrix}
+\end{equation} 
+
+求得偏应变率张量：
+\begin{equation}\label{eq13}
     \dot e_{ij} = \dot \varepsilon_{ij} - \dfrac{1}{3}\dot \varepsilon_{ij} \delta_{ij}  = \begin{bmatrix}
         0 & 0 & 0 \vspace{1ex}\\
         0 & 0 & \dfrac{\dot\theta r}{2L}\\
@@ -76,7 +85,7 @@
 \end{equation} 
 
 此外，写出此时圆杆各点应力状态：
-\begin{equation}\label{eq13}
+\begin{equation}\label{eq14}
     \sigma_{ij} = \begin{bmatrix}
         0 & 0 & 0 \\
         0 & \sigma_{xx} & \tau_{x \theta}\\
@@ -85,7 +94,7 @@
 \end{equation} 
 
 则有偏应力张量：
-\begin{equation}\label{eq14}
+\begin{equation}\label{eq15}
     s_{ij} = \begin{bmatrix}
         -\dfrac{1}{3}\sigma_{xx} & 0 & 0 \vspace{1ex}\\
         0 & \dfrac{2}{3}\sigma_{xx} & \tau_{x \theta}\vspace{1ex}\\
@@ -94,7 +103,7 @@
 \end{equation} 
 
 相对应的偏应力率张量：
-\begin{equation}\label{eq15}
+\begin{equation}\label{eq16}
     \dot s_{ij} = \begin{bmatrix}
         -\dfrac{1}{3}\dot \sigma_{xx} & 0 & 0 \vspace{1ex}\\
         0 & \dfrac{2}{3}\dot \sigma_{xx} & \dot \tau_{x \theta}\vspace{1ex}\\
@@ -103,11 +112,66 @@
 \end{equation} 
 
 考虑相关塑性流动法则下，基于~Mises~屈服准则建立的多维弹塑性理论模型。偏应力率与偏应变率的解析求解关系：
+\begin{equation}\label{eq17}
+    \dot s_{ij} = 2G(\delta_{ik}\delta_{jl}-\dfrac{3}{2}\dfrac{s_{ij}s_{kl}}{\sigma_{y}^2}) \dot e_{kl} \\
+    = 2G(e_{ij}-\dfrac{3}{2}\dfrac{s_{ij}}{\sigma_{y}^2}s_{kl} \dot e_{kl})
+\end{equation}
+其中，{$G=\frac{E}{2(1+2\nu)}$}
 
 因为此时圆杆内各点屈服，由~Mises~屈服函数可得：
+\begin{equation}\label{eq18}
+    \sigma_y = \sqrt{\dfrac{3}{2} s_{ij} s_{ij}} = \sqrt{\dfrac{3}{2}(\dfrac{2}{3}\sigma_{xx}^2 + 2\tau_{x \theta}^2)} = f_y
+\end{equation}
 
-整理得圆杆截面各点正应力 与剪应力 满足屈服条件：
+整理得圆杆截面各点正应力~{$\sigma_{xx}$}~与剪应力~{$\tau_{x \theta}$}~满足屈服条件：
+\begin{equation}\label{eq19}
+    \sigma_{xx}^2 + 3\tau_{x \theta}^2 = f_{y}^2
+\end{equation}
 
+将式~(\ref{eq13})、(\ref{eq15})、(\ref{eq16})~代入式~(\ref{eq17})，得偏应变率~{$\dot s_{22}$}、{$\dot s_{23}$}:
+\begin{subequations}\label{eq20}
+    \begin{numcases} 
+        ~\dot s_{22} = \dfrac{2}{3}\dot\sigma_{xx} = 2G(0-\dfrac{\sigma_{xx}}{f_{y}^2} \dfrac{\tau_{x \theta}}{L} r\dot \theta)  \\
+        \dot s_{23} = \dot\tau_{x \theta} = 2G(\dfrac{\dot\theta r}{2L}-\dfrac{3}{2} \dfrac{\tau_{x \theta}^2}{f_{y}^2} \dfrac{r}{L} \dot\theta)
+    \end{numcases}
+\end{subequations}
 
+将~{$\sigma_{xx}$}~表示为~{$\sigma$}，将~{$\tau_{x \theta}$}~表示为~{$\tau$}，整理可得：
+\begin{subequations}\label{eq21}
+    \begin{numcases} 
+        ~\dfrac{1}{\sigma} d\sigma = -\dfrac{3Gr}{f_{y}^2 L} \tau d \theta \label{eq21a}  \\
+        \dfrac{2 \sqrt{3}f_{y}}{f_{y}^2 - 3\tau^2} d \tau = \dfrac{2 \sqrt{3} Gr}{f_{y} L} d \theta \label{eq21b}
+    \end{numcases}
+\end{subequations}
 
+对式~\eqref{eq21b}~两边积分，得：
+\begin{equation}\label{eq22}
+    \ln(f_y + \sqrt{3}\tau) - \ln(f_y - \sqrt{3}\tau) + C_2 = \dfrac{2 \sqrt{3} Gr}{f_{y} L} \theta
+\end{equation}
+将~{$\theta = 0$}，{$\tau = 0$}~代入，解得~{$C_2 = 0$}。反代回式~\eqref{eq22}~解出~{$\tau$}~的表达式:
+\begin{equation}\label{eq23}
+    \tau = \dfrac{f_{y}}{\sqrt{3}}\dfrac{\exp(\dfrac{2 \sqrt{3} Gr}{f_{y} L} \theta) - 1}{\exp(\dfrac{2 \sqrt{3} Gr}{f_{y} L} \theta) + 1}
+\end{equation}
 
+将式~\eqref{eq23}~代入式~\eqref{eq21a}，并对两边积分，得:
+\begin{equation}\label{eq24}
+    \ln(\sigma) + C_1 = \dfrac{\sqrt{3}Gr}{f_{y}L} \theta -\ln(\exp(\dfrac{2 \sqrt{3} Gr}{f_{y} L} \theta)+1)
+\end{equation}
+同样的，将~{$\theta = 0$}，{$\sigma = f_y$}~代入，解得~{$C_1 = -\ln(2f_y)$}。反代回式~\eqref{eq24}~解出~{$\sigma$}~的表达式:
+\begin{equation}\label{eq25}
+    \sigma = 2f_{y} \dfrac{\exp(\dfrac{\sqrt{3} Gr}{f_{y} L} \theta)}{\exp(\dfrac{2 \sqrt{3} Gr}{f_{y} L} \theta) + 1}
+\end{equation}
+
+将解得的~{$\sigma$}~和~{$\tau$}~代入式~\eqref{eq19}，有：
+\begin{equation}\label{eq26}
+    \sigma^2 + 3\tau^2 =  f_{y}^2 \dfrac{4exp(2k)+exp(4k)-2exp(2k)+1}{(exp(2k)+1)^2} = f_{y}^2
+\end{equation}
+其中，{$k = \dfrac{\sqrt{3} Gr}{f_{y} L} \theta$}。\vspace{1ex}
+
+因此，验证推导结果满足~Mises~屈服条件。综上，理想弹塑性材料条件下，圆杆轴向应力与剪应力沿杆截面分布的解析表达式为：
+\begin{subequations}\label{eq27}
+    \begin{numcases} 
+        ~\sigma = 2f_{y} \dfrac{\exp(\dfrac{\sqrt{3} Gr}{f_{y} L} \theta)}{\exp(\dfrac{2 \sqrt{3} Gr}{f_{y} L} \theta) + 1} \label{eq27a}  \\
+        \tau = \dfrac{f_{y}}{\sqrt{3}}\dfrac{\exp(\dfrac{2 \sqrt{3} Gr}{f_{y} L} \theta) - 1}{\exp(\dfrac{2 \sqrt{3} Gr}{f_{y} L} \theta) + 1} \label{eq27b}
+    \end{numcases}
+\end{subequations}

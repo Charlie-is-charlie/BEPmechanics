@@ -1,2 +1,14 @@
 \chapter{各向同性线性硬化材料杆的理论求解}
 \label{cha:hardened}
+其他条件不变，将材料考虑为各向同性线性硬化材料，硬化模量为~{$k$}。式~(\ref{eq17})~转变为:
+\begin{equation}\label{eq28}
+    \dot s_{ij} = 2G(e_{ij}-\dfrac{3}{2}\dfrac{s_{ij}}{\sigma_{y}^2(1+\dfrac{K}{3G})}s_{kl} \dot e_{kl})
+\end{equation}
+
+因为硬化模量~{$k$}~为常数，故式~(\ref{eq28})~仍是关于~{$s_{ij}$}~的封闭常微分方程，存在解析解。将~{$f_y$}~用~{$f_y\sqrt{1+\dfrac{K}{3G}}$}~代替，带入式~(\ref{eq28})，可得各向同性线性硬化材料条件下，圆杆轴向应力与剪应力沿杆截面分布的解析表达式：
+\begin{subequations}\label{eq29}
+    \begin{numcases} 
+        ~\sigma = 2f_{y} \dfrac{\exp(\dfrac{3Gr\theta}{f_{y} L}\sqrt{\dfrac{G}{3G+K}})}{\exp(\dfrac{6Gr\theta}{f_{y} L}\sqrt{\dfrac{G}{3G+K}}) + 1} \sqrt{1+\dfrac{K}{3G}} \label{eq29a} \\
+        \tau = \dfrac{f_{y}}{\sqrt{3}}\dfrac{\exp(\dfrac{6Gr\theta}{f_{y} L}\sqrt{\dfrac{G}{3G+K}}) - 1}{\exp(\dfrac{6Gr\theta}{f_{y} L}\sqrt{\dfrac{G}{3G+K}}) + 1} \sqrt{1+\dfrac{K}{3G}}  \label{eq29b}
+    \end{numcases}
+\end{subequations}
